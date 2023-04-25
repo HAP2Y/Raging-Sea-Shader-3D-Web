@@ -8,7 +8,10 @@ import waterFragmentShader from "./shaders/water/fragment.glsl";
  * Base
  */
 // Debug
-const gui = new dat.GUI({ width: 340 });
+const gui = new dat.GUI({ width: 340 }).close();
+const bigWavesFolder = gui.addFolder("Big Waves");
+const smallWavesFolder = gui.addFolder("Small Waves");
+const colorFolder = gui.addFolder("Color");
 const debugObject = {};
 
 // Canvas
@@ -52,84 +55,84 @@ const waterMaterial = new THREE.ShaderMaterial({
 });
 
 // Debug
-gui
+bigWavesFolder
   .add(waterMaterial.uniforms.uBigWavesElevation, "value")
   .min(0)
   .max(1)
   .step(0.001)
   .name("Big Waves Elevation");
 
-gui
+bigWavesFolder
   .add(waterMaterial.uniforms.uBigWavesFrequency.value, "x")
   .min(0)
   .max(10)
   .step(0.001)
   .name("Big Waves Frequency X");
 
-gui
+bigWavesFolder
   .add(waterMaterial.uniforms.uBigWavesFrequency.value, "y")
   .min(0)
   .max(10)
   .step(0.001)
   .name("Big Waves Frequency Y");
 
-gui
+bigWavesFolder
   .add(waterMaterial.uniforms.uBigWavesSpeed, "value")
   .min(0)
   .max(4)
   .step(0.001)
   .name("Big Waves Speed");
 
-gui
+colorFolder
   .addColor(debugObject, "depthColor")
   .name("Depth Color")
   .onChange(() => {
     waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor);
   });
 
-gui
+colorFolder
   .addColor(debugObject, "surfaceColor")
   .name("Surface Color")
   .onChange(() => {
     waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor);
   });
 
-gui
+colorFolder
   .add(waterMaterial.uniforms.uColorOffset, "value")
   .min(0)
   .max(1)
   .step(0.001)
   .name("Color Offset");
 
-gui
+colorFolder
   .add(waterMaterial.uniforms.uColorMultiplier, "value")
   .min(0)
   .max(10)
   .step(0.001)
   .name("Color Multiplier");
 
-gui
+smallWavesFolder
   .add(waterMaterial.uniforms.uSmallWavesElevation, "value")
   .min(0)
   .max(1)
   .step(0.001)
   .name("Small Waves Elevation");
 
-gui
+smallWavesFolder
   .add(waterMaterial.uniforms.uSmallWavesFrequency, "value")
   .min(0)
   .max(30)
   .step(0.001)
   .name("Small Waves Frequency");
 
-gui
+smallWavesFolder
   .add(waterMaterial.uniforms.uSmallWavesSpeed, "value")
   .min(0)
   .max(4)
   .step(0.001)
   .name("Small Waves Speed");
 
-gui
+smallWavesFolder
   .add(waterMaterial.uniforms.uSmallIterations, "value")
   .min(0)
   .max(5)
