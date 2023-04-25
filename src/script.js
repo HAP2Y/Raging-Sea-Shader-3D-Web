@@ -57,39 +57,39 @@ gui
   .min(0)
   .max(1)
   .step(0.001)
-  .name("uBigWavesElevation");
+  .name("Big Waves Elevation");
 
 gui
   .add(waterMaterial.uniforms.uBigWavesFrequency.value, "x")
   .min(0)
   .max(10)
   .step(0.001)
-  .name("uBigWavesFrequencyX");
+  .name("Big Waves Frequency X");
 
 gui
   .add(waterMaterial.uniforms.uBigWavesFrequency.value, "y")
   .min(0)
   .max(10)
   .step(0.001)
-  .name("uBigWavesFrequencyY");
+  .name("Big Waves Frequency Y");
 
 gui
   .add(waterMaterial.uniforms.uBigWavesSpeed, "value")
   .min(0)
   .max(4)
   .step(0.001)
-  .name("uBigWavesSpeed");
+  .name("Big Waves Speed");
 
 gui
   .addColor(debugObject, "depthColor")
-  .name("depthColor")
+  .name("Depth Color")
   .onChange(() => {
     waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor);
   });
 
 gui
   .addColor(debugObject, "surfaceColor")
-  .name("surfaceColor")
+  .name("Surface Color")
   .onChange(() => {
     waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor);
   });
@@ -99,42 +99,42 @@ gui
   .min(0)
   .max(1)
   .step(0.001)
-  .name("uColorOffset");
+  .name("Color Offset");
 
 gui
   .add(waterMaterial.uniforms.uColorMultiplier, "value")
   .min(0)
   .max(10)
   .step(0.001)
-  .name("uColorMultiplier");
+  .name("Color Multiplier");
 
 gui
   .add(waterMaterial.uniforms.uSmallWavesElevation, "value")
   .min(0)
   .max(1)
   .step(0.001)
-  .name("uSmallWavesElevation");
+  .name("Small Waves Elevation");
 
 gui
   .add(waterMaterial.uniforms.uSmallWavesFrequency, "value")
   .min(0)
   .max(30)
   .step(0.001)
-  .name("uSmallWavesFrequency");
+  .name("Small Waves Frequency");
 
 gui
   .add(waterMaterial.uniforms.uSmallWavesSpeed, "value")
   .min(0)
   .max(4)
   .step(0.001)
-  .name("uSmallWavesSpeed");
+  .name("Small Waves Speed");
 
 gui
   .add(waterMaterial.uniforms.uSmallIterations, "value")
   .min(0)
   .max(5)
   .step(0.001)
-  .name("uSmallIterations");
+  .name("Small Iterations");
 
 // Mesh
 const water = new THREE.Mesh(waterGeometry, waterMaterial);
